@@ -1,0 +1,135 @@
+:root{
+  --parchment:#F3E4DC;
+  --parchment-soft:#FBF4EF;
+  --ink:#2B2420;
+  --wine:#7A2E38;
+  --wine-dark:#5C1F27;
+  --sage:#8A9B6E;
+  --gold:#C9A15A;
+}
+
+*{ box-sizing:border-box; }
+
+body{
+  background:var(--parchment-soft);
+  color:var(--ink);
+  font-family:'Work Sans', sans-serif;
+  margin:0;
+}
+
+h1,h2,h3,.serif{ font-family:'Cormorant Garamond', serif; }
+.script{ font-family:'Caveat', cursive; }
+a{ text-decoration:none; }
+
+section{ padding:5.5rem 0; }
+.section-tag{
+  color:var(--wine);
+  font-family:'Caveat', cursive;
+  font-size:1.4rem;
+  margin-bottom:.2rem;
+  display:block;
+}
+.section-title{
+  font-size:clamp(1.9rem, 3.4vw, 2.6rem);
+  font-weight:500;
+  margin-bottom:1.2rem;
+}
+.bg-soft{ background:var(--parchment); }
+
+/* ===== MENÚ (listón) — igual en las 4 páginas ===== */
+.ribbon-nav{
+  background:var(--ink);
+  position:sticky;
+  top:0;
+  z-index:40;
+  box-shadow:0 4px 18px rgba(0,0,0,.15);
+}
+.ribbon-nav .nav-flex{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:center;
+  gap:clamp(1rem, 3vw, 2.6rem);
+  padding:.85rem 1rem;
+}
+.ribbon-nav a{
+  color:var(--parchment);
+  font-size:.92rem;
+  letter-spacing:.03em;
+  position:relative;
+  padding:.2rem 0;
+}
+.ribbon-nav a::after{
+  content:"";
+  position:absolute;
+  left:0; bottom:-3px;
+  width:0%;
+  height:1px;
+  background:var(--gold);
+  transition:width .25s ease;
+}
+.ribbon-nav a:hover::after{ width:100%; }
+.ribbon-seal{
+  color:var(--gold);
+  font-family:'Caveat', cursive;
+  font-size:1.3rem;
+}
+
+/* ===== GALERÍA (CSS GRID MOSAICO) ===== */
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+  grid-auto-rows:150px;
+  gap:.9rem;
+}
+.gallery-grid figure{
+  margin:0;
+  position:relative;
+  overflow:hidden;
+  border-radius:3px;
+}
+.gallery-grid img{
+  width:100%; height:100%;
+  object-fit:cover;
+  display:block;
+  transition:transform .5s ease;
+}
+.gallery-grid figure:hover img{ transform:scale(1.08); }
+.gallery-grid figcaption{
+  position:absolute; inset:auto 0 0 0;
+  padding:.6rem .8rem;
+  background:linear-gradient(0deg, rgba(43,36,32,.85), transparent);
+  color:#fff;
+  font-family:'Caveat', cursive;
+  font-size:1.1rem;
+  opacity:0;
+  transition:opacity .3s ease;
+}
+.gallery-grid figure:hover figcaption{ opacity:1; }
+.g-tall{ grid-row:span 2; }
+.g-wide{ grid-column:span 2; }
+@media (max-width:860px){
+  .gallery-grid{ grid-template-columns:repeat(2,1fr); }
+  .g-wide{ grid-column:span 2; }
+}
+
+/* ===== VIDEO (marco tipo libro) ===== */
+.book-frame{
+  background:var(--ink);
+  border-radius:6px;
+  padding:.9rem;
+  box-shadow:0 20px 40px rgba(43,36,32,.25);
+}
+.book-frame video{ width:100%; border-radius:3px; display:block; }
+.video-caption{
+  font-family:'Caveat', cursive;
+  color:var(--wine);
+  font-size:1.3rem;
+  margin-top:1rem;
+  text-align:center;
+}
+
+/* ===== FOOTER ===== */
+footer{ background:var(--ink); color:var(--parchment); padding:3rem 0 2rem; text-align:center; }
+footer .script{ color:var(--gold); font-size:1.6rem; }
+footer p{ opacity:.7; font-size:.85rem; margin-top:.6rem; }

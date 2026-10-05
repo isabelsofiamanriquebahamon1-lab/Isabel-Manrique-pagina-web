@@ -1,0 +1,126 @@
+:root{
+  --parchment:#F3E4DC;
+  --parchment-soft:#FBF4EF;
+  --ink:#2B2420;
+  --wine:#7A2E38;
+  --wine-dark:#5C1F27;
+  --sage:#8A9B6E;
+  --gold:#C9A15A;
+}
+
+*{ box-sizing:border-box; }
+
+body{
+  background:var(--parchment-soft);
+  color:var(--ink);
+  font-family:'Work Sans', sans-serif;
+  margin:0;
+}
+
+h1,h2,h3,.serif{ font-family:'Cormorant Garamond', serif; }
+.script{ font-family:'Caveat', cursive; }
+a{ text-decoration:none; }
+
+section{ padding:5.5rem 0; }
+.section-tag{
+  color:var(--wine);
+  font-family:'Caveat', cursive;
+  font-size:1.4rem;
+  margin-bottom:.2rem;
+  display:block;
+}
+.section-title{
+  font-size:clamp(1.9rem, 3.4vw, 2.6rem);
+  font-weight:500;
+  margin-bottom:1.2rem;
+}
+
+/* ===== MENÚ (listón) — igual en las 4 páginas ===== */
+.ribbon-nav{
+  background:var(--ink);
+  position:sticky;
+  top:0;
+  z-index:40;
+  box-shadow:0 4px 18px rgba(0,0,0,.15);
+}
+.ribbon-nav .nav-flex{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:center;
+  gap:clamp(1rem, 3vw, 2.6rem);
+  padding:.85rem 1rem;
+}
+.ribbon-nav a{
+  color:var(--parchment);
+  font-size:.92rem;
+  letter-spacing:.03em;
+  position:relative;
+  padding:.2rem 0;
+}
+.ribbon-nav a::after{
+  content:"";
+  position:absolute;
+  left:0; bottom:-3px;
+  width:0%;
+  height:1px;
+  background:var(--gold);
+  transition:width .25s ease;
+}
+.ribbon-nav a:hover::after{ width:100%; }
+.ribbon-seal{
+  color:var(--gold);
+  font-family:'Caveat', cursive;
+  font-size:1.3rem;
+}
+
+/* ===== FORMULARIO (sobre de carta) ===== */
+.envelope-wrap{
+  max-width:640px;
+  margin:0 auto;
+  background:var(--parchment);
+  border:1px solid rgba(122,46,56,.25);
+  padding:3rem clamp(1.6rem,5vw,3.2rem);
+  position:relative;
+}
+.envelope-wrap::before{
+  content:"";
+  position:absolute;
+  top:0; left:0; right:0;
+  height:0;
+  border-left:340px solid transparent;
+  border-right:340px solid transparent;
+  border-top:70px solid rgba(122,46,56,.08);
+  max-width:100%;
+}
+.form-label{
+  font-family:'Caveat', cursive;
+  font-size:1.25rem;
+  color:var(--wine-dark);
+  margin-bottom:.25rem;
+}
+.form-control, .form-select{
+  background:var(--parchment-soft);
+  border:1px solid rgba(122,46,56,.3);
+  border-radius:2px;
+  font-family:'Work Sans', sans-serif;
+}
+.form-control:focus, .form-select:focus{
+  border-color:var(--wine);
+  box-shadow:0 0 0 .2rem rgba(122,46,56,.15);
+}
+.btn-wine{
+  background:var(--wine);
+  color:#fff;
+  border:none;
+  padding:.7rem 2rem;
+  border-radius:2px;
+  letter-spacing:.02em;
+  transition:background .25s ease;
+}
+.btn-wine:hover{ background:var(--wine-dark); color:#fff; }
+
+/* ===== FOOTER ===== */
+footer{ background:var(--ink); color:var(--parchment); padding:3rem 0 2rem; text-align:center; }
+footer .script{ color:var(--gold); font-size:1.6rem; }
+footer p{ opacity:.7; font-size:.85rem; margin-top:.6rem; }
